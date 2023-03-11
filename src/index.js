@@ -46,12 +46,14 @@ function excess() {
 }
 
 function forArrayCountries(countries) {
-  countryMarkup = '';
-  for (const country of countries) {
-    countryMarkup =
-      countryMarkup +
-      `<li><img src="${country.flags.svg}" style="width: 30px; height: 15px;"></<span>${country.name.common}</span></li>`;
-  }
+    countryMarkup = countries.map((country) => {
+      return `<li><img src="${country.flags.svg}" style="width: 30px; height: 15px;"></<span>${country.name.common}</span></li>`;
+  }).join("");
+//   for (const country of countries) {
+//     countryMarkup =
+//       countryMarkup +
+//       `<li><img src="${country.flags.svg}" style="width: 30px; height: 15px;"></<span>${country.name.common}</span></li>`;
+//   }
   listEl.innerHTML = countryMarkup;
 }
 
